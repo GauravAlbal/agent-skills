@@ -39,6 +39,8 @@ Every skill follows the open Agent Skills shape:
 
 `SKILL.md` contains activation metadata and the complete decision procedure.
 
+Try each skill in under three minutes with the bounded prompts in [EXAMPLES.md](EXAMPLES.md).
+
 ## Boundaries
 
 - No skill claims that its presence guarantees behavior.
