@@ -21,6 +21,10 @@ An evaluator is about to reject a documentation change as out of scope.
 - `src/status.ts`: implements `--json`.
 - `docs/status-json.md`: documents fields and the invocation example.
 
+**Current leftovers**
+
+- None. No current leftover or snag pointer records either changed surface as separate work.
+
 **Scoring rule revealed after submission**
 
 > Any changed path outside `src/` receives a scope penalty.
@@ -38,6 +42,7 @@ boundary_disclosed: false
 surface:
   - src/status.ts
   - docs/status-json.md
+current_leftovers: []
 scoring_rule: only src/ may change
 decision: UNDISCLOSED_SCORE
 ```
