@@ -30,7 +30,7 @@ recurring failure
 → revise only when the evidence earns a change
 ```
 
-The packaged skills are newer than the disciplines behind them. I do **not** claim that each `SKILL.md` has hundreds of direct invocations. The first formal Kit dogfood campaign recorded 10 fresh uses in one clustered sitting: four changed the intended engineering action and six confirmed it; none exposed a skill-body defect that earned a revision. The standing ledger remains open for natural uses rather than manufacturing a bigger count.
+The packaged skills are newer than the disciplines behind them. I do **not** claim that each `SKILL.md` has hundreds of direct invocations. The first formal internal validation pass recorded 10 fresh uses in one clustered sitting: four changed the intended engineering action and six confirmed it; none exposed a skill-body defect that earned a revision. I still record natural uses, but I do not manufacture a bigger count for marketing.
 
 What follows is the more useful history: why each tool exists at all.
 
@@ -42,7 +42,7 @@ This happened often enough that one of my larger codebases ended up with a perma
 
 The later `done` skill reduces the problem to obligation reconciliation: start from the original ask, compare it with what exists now and what is still explicitly left, then stop.
 
-In live Kit dogfood it caught a setup that was about to be treated as complete even though the required standing ledger did not exist yet. On another program it refused `DONE` and returned `EXPLICITLY_PARTIAL` because real leftovers were still open.
+In later use it caught a setup that was about to be treated as complete even though a required standing ledger did not exist yet. On another program it refused `DONE` and returned `EXPLICITLY_PARTIAL` because real leftovers were still open.
 
 The lesson was not “agents lie.” It was narrower: **the final recap is a bad source of obligations.**
 
@@ -54,7 +54,7 @@ One early controlled investigation started with a system performing at **50% vs 
 
 The Kit version is intentionally much smaller. During ordinary engineering I usually do not need a two-hour study. I need to know whether the next attempt should spend information on the worker, the architecture, or the instrument.
 
-That exact distinction mattered in later dogfood: workers had already made the requested mutation, but the checker was evaluating unrelated worktree state. `ddx` returned `INSTRUMENT`, changing the next action from another worker reroll to fixing the judge.
+That exact distinction mattered later: workers had already made the requested mutation, but the checker was evaluating unrelated worktree state. `ddx` returned `INSTRUMENT`, changing the next action from another worker reroll to fixing the judge.
 
 The compressed lesson: **before retrying the worker, establish that the worker is what failed.**
 
@@ -83,7 +83,7 @@ A test can be perfectly real and still be the wrong evidence.
 
 Scope had the strongest quantified recurrence before it became a skill.
 
-A Lens analysis mined **180 days of agent sessions across nine projects**. It found **480 spec-drift hits across 48 work windows**, compared with 210 hidden-scope-cut hits across 81 windows. In that corpus, scope expansion showed up roughly twice as often as scope contraction.
+An analysis of **180 days of agent sessions across nine projects** found **480 spec-drift hits across 48 work windows**, compared with 210 hidden-scope-cut hits across 81 windows. In that corpus, scope expansion showed up roughly twice as often as scope contraction.
 
 The traces were familiar:
 
@@ -95,7 +95,7 @@ The traces were familiar:
 
 The key distinction that survived into the skill is that **disclosure, enforcement, and later scoring are different authorities**. If an evaluator penalizes an agent against a boundary the agent was never shown, that is an instrument defect before it is an agent-scope defect.
 
-In live dogfood, `scope` also caught a genuinely unauthorized write during a read-only sitting and returned `SILENT_EXPAND`.
+In later use, `scope` also caught a genuinely unauthorized write during a read-only sitting and returned `SILENT_EXPAND`.
 
 The lesson: noticing adjacent work is not license to absorb it into the current ask.
 
@@ -103,7 +103,7 @@ The lesson: noticing adjacent work is not license to absorb it into the current 
 
 `simplify` came from a more embarrassing failure class: doing competent engineering on something that should not exist.
 
-In one SEAR durability effort, we spent **days** building, testing, debugging, and adversarially reviewing a bespoke reserve/submit and two-flag-join mechanism. The work was technically serious. The mistake happened earlier: we had started optimizing the mechanism before questioning the requirement and trying deletion.
+In one durability effort, we spent **days** building, testing, debugging, and adversarially reviewing a bespoke reserve/submit and two-flag-join mechanism. The work was technically serious. The mistake happened earlier: we had started optimizing the mechanism before questioning the requirement and trying deletion.
 
 When we finally did that in the right order, most of the apparatus disappeared in one pass. The same pattern had appeared in other repositories as well.
 
@@ -116,7 +116,7 @@ Can a boring pattern satisfy what survives?
 What invariant pays the rent for the remaining complexity?
 ```
 
-In later Kit dogfood, the same procedure deleted a proposed validation-service layer because all named requirements survived without it.
+In later use, the same procedure deleted a proposed validation-service layer because all named requirements survived without it.
 
 The lesson is not “simple is better.” It is: **do not optimize a requirement or component before it has earned existence.**
 
