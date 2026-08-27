@@ -21,6 +21,20 @@ guidance ≠ evidence
 evidence ≠ acceptance
 ```
 
+## Where these came from
+
+I did not sit down and invent five prompts. These are small decision procedures I kept needing while building with coding agents.
+
+The source rules were pulled from recurring failures across months of engineering work, then compressed until each skill did one job. The original cross-project pass drew from roughly 70 design documents across seven project families. Some rules had much larger empirical trails behind them:
+
+- **Scope:** six months of agent-session history across nine projects surfaced 480 scope-drift hits across 48 work windows.
+- **Proof:** one bad test oracle stayed green for 37 days while 28 agent sessions touched the affected subsystem before it was rebuilt around behavioral evidence.
+- **Simplify:** a durability mechanism consumed days of implementation, testing, and review before questioning the requirement made most of the machinery disappear.
+
+The packaged skills were then tested separately for activation, routing, terminal behavior, and real use. I keep them unchanged when the evidence does not earn a change.
+
+Read [Why The Kit](docs/WHY_THE_KIT.md) for the longer provenance and the mistakes each skill came from.
+
 ## Install
 
 Clone the repository:
@@ -132,8 +146,6 @@ Each skill:
 - says what its result does **not** establish;
 - stops before it turns into the next engineering job.
 
-Read [Why The Kit](docs/WHY_THE_KIT.md) for the longer design argument.
-
 ## When one test becomes the whole test suite
 
 `proof` answers:
@@ -142,13 +154,9 @@ Read [Why The Kit](docs/WHY_THE_KIT.md) for the longer design argument.
 Does this check prove this behavior on this revision?
 ```
 
-If the question becomes:
+If the problem is the whole test suite—what matters, what is missing, and what can safely go—use [Fix My Tests](https://github.com/GauravAlbal/fix-my-tests).
 
-```text
-Does this repository protect the risks that matter with the right tests?
-```
-
-use [Fix My Tests](https://github.com/GauravAlbal/fix-my-tests). It is a separate free tool, not a sixth skill.
+The Kit is what I reach for during the work. Fix My Tests is the deeper tool I reach for when the test system itself becomes the work.
 
 ## Limits
 
