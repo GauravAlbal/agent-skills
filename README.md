@@ -71,7 +71,7 @@ The result is not “looks good.” Each skill has a small terminal vocabulary.
 
 **Exits:** `SUPPORTS_CLAIM` · `HOLLOW` · `WRONG_ORACLE` · `WRONG_METHOD` · `UNKNOWN`
 
-**Tiny case:** A current test can falsify an in-memory recovery contract, but it uses clean shutdown and a fake store to support a real crash-durability claim. → `WRONG_METHOD`
+**Tiny case:** A state-machine unit test goes red when its in-memory crash model exposes a partial record, but it never kills a process or exercises filesystem ordering. → `WRONG_METHOD`
 
 [Full decision contract](proof/SKILL.md) · [Three-minute example](examples/proof.md)
 
@@ -135,14 +135,14 @@ For clients that discover user skills under `~/.agents/skills/`:
 ```sh
 mkdir -p "$HOME/.agents/skills"
 for skill in done ddx proof scope simplify; do
-  ln -s "$PWD/$skill" "$HOME/.agents/skills/$skill"
+  ln -s "$PWD/$skill" "$HOME/.agents/skills/"
 done
 ```
 
 Install only one when that is all you need:
 
 ```sh
-ln -s "$PWD/proof" "$HOME/.agents/skills/proof"
+ln -s "$PWD/proof" "$HOME/.agents/skills/"
 ```
 
 ### OMP (Oh My Pi)
@@ -152,11 +152,11 @@ OMP discovers user skills under `~/.omp/agent/skills/`:
 ```sh
 mkdir -p "$HOME/.omp/agent/skills"
 for skill in done ddx proof scope simplify; do
-  ln -s "$PWD/$skill" "$HOME/.omp/agent/skills/$skill"
+  ln -s "$PWD/$skill" "$HOME/.omp/agent/skills/"
 done
 ```
 
-Restart the client after installation so it reloads skill metadata. Keep the checkout in place while using symlinks. No adapter or build step is required.
+Restart the client after installation so it reloads skill metadata. Keep the checkout in place while using symlinks. Existing destinations are never overwritten: `ln` reports `File exists` and leaves them unchanged. No adapter or build step is required.
 
 ## When the question becomes repository-wide
 

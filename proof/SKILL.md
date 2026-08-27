@@ -3,7 +3,7 @@ name: proof
 description: Use this skill when green tests, CI, coverage, or another check are offered as proof of a specific behavior. Decide whether that check is valid evidence for the named claim on this revision by testing falsifiability, oracle authority, method/seam fitness, and current execution. Use for one claim/check pair; use Fix My Tests for repo-wide verification portfolio design.
 metadata:
   author: Gaurav Albal
-  version: "0.2"
+  version: "0.3"
 ---
 
 # Test the Test
@@ -33,11 +33,13 @@ decision:
   - when: current execution/provenance, the claimed behavior, oracle authority,
           or the mechanism/seam the claim depends on cannot be established
     then: UNKNOWN
-  - when: the check can remain green while the claimed behavior is absent
+  - when: the exact check can remain green when the asserted expectation
+          for the behavior it actually exercises is violated
     then: HOLLOW
   - when: the relevant behavior is exercised but judged against the wrong expected truth
     then: WRONG_ORACLE
-  - when: the check is falsifiable but its method/seam cannot expose absence of this kind of behavior
+  - when: the exact check is falsifiable for its exercised proposition,
+          but its method/seam cannot expose absence of the named behavior
     then: WRONG_METHOD
   - when: the check would fail when the named behavior is absent,
           the oracle is the right authority,
@@ -53,10 +55,10 @@ stop: emit one disposition for this claim/check pair
 ## Procedure
 
 1. **Name the behavior.** One sentence.
-2. **Name the opposite outcome.** What observable result means the behavior is absent or wrong?
-3. **Test falsifiability.** Would this exact check still pass under that opposite outcome? If yes: `HOLLOW`.
+2. **Name the exercised proposition and its opposite.** What does the check actually exercise, what does it assert, and what observable result violates that assertion?
+3. **Test check falsifiability.** Would this exact check still pass when its asserted expectation for the exercised proposition is violated? If yes: `HOLLOW`.
 4. **Test the oracle.** If the behavior runs but the expected truth/authority is wrong: `WRONG_ORACLE`.
-5. **Test the method/seam.** Can this kind of check expose the relevant failure? If not: `WRONG_METHOD`.
+5. **Test the method/seam.** Does the exercised proposition and method reach the named behavior's mechanism or seam? A check can be falsifiable for a narrower proxy yet unable to expose absence of the named behavior. If so: `WRONG_METHOD`.
 6. **Check currentness.** Wrong revision, missing run, or skip-as-green cannot become proof.
 
 ## Exit
@@ -76,6 +78,7 @@ Emit it only to say how far the offered check reached. It is descriptive. It is 
 ## Gotchas
 
 - A unit test can be perfectly falsifiable and still be the wrong method for crash recovery, concurrency, or external compatibility.
+- `HOLLOW` tests whether the exact check has a real failure knife edge for what it exercises. `WRONG_METHOD` tests whether that exercised proposition and method can expose absence of the named behavior.
 - A mocked persistence test does not establish crash durability.
 - A sleeping thread test does not establish a concurrency invariant.
 - An internal fake alone does not establish an external protocol's compatibility.
