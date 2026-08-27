@@ -46,6 +46,10 @@ Every skill follows the open Agent Skills shape:
 - The collection is deliberately five tools; specialist workbenches are separate products.
 - Each skill may be used independently.
 
+## When the question becomes repository-wide
+
+`proof` decides whether one check supports one claim. If the job becomes “does this repository protect the right product risks with the right evidence?”, use the separate free [Fix My Tests](https://github.com/GauravAlbal/fix-my-tests) instrument.
+
 ## License
 
-The skill documents are available under the path-scoped terms in [LICENSE.md](LICENSE.md).
+The skill documents are available under [CC BY 4.0](LICENSE.md).
