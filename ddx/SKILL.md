@@ -85,7 +85,7 @@ stop: spend at most one discriminator before choosing the next class of action
 - A successful retry does not erase the original failure class.
 - A discriminator that can be reinterpreted after the result did not discriminate.
 - An empirically decidable fork is not a principal question. Spend the cheap observation within the one-discriminator bound; do not escalate it to the human.
-- If one cheap discriminator is no longer enough because the mechanism itself is thorny—race, state machine, distributed ordering, crash recovery, rare nondeterminism, resource pathology—stop. That is the larger DDx Heavy job, not an excuse to bloat this skill.
+- If one cheap discriminator is no longer enough because the mechanism itself is thorny—race, state machine, distributed ordering, crash recovery, rare nondeterminism, resource pathology—stop. That is a larger investigation, not an excuse to bloat this skill.
 
 ## Why this shape
 

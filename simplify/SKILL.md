@@ -45,7 +45,7 @@ decision:
     then: STOP
 non_claims:
   - does not prove the chosen design is globally optimal
-  - does not replace Tribunal or a design review when multiple material architectures remain
+  - does not replace a dedicated architecture review when multiple material architectures remain
 stop: return to the named ask after one disposition
 ```
 
@@ -56,7 +56,7 @@ stop: return to the named ask after one disposition
 3. **Prefer the boring pattern.** If an established simple topology satisfies the surviving invariant: `BORING`.
 4. **Split only for a reason.** A separate component should have a distinct failure mode, lifecycle, authority, or scaling boundary—not merely a new noun.
 5. **Charge rent to survivors.** Name the invariant/failure each remaining piece protects. If simpler structure would lose it: `RENT`.
-6. **Stop same-shape repair churn.** Repeated independent implementation deviations or workarounds of the same shape mean the question is an architecture exam: `STOP` and hand off to Tribunal or an architecture review. Do not keep bolting local repairs.
+6. **Stop same-shape repair churn.** Repeated independent implementation deviations or workarounds of the same shape mean the question is an architecture exam: `STOP` and hand off to a dedicated architecture review. Do not keep bolting local repairs.
 
 ## Exit
 
@@ -71,7 +71,7 @@ stop: return to the named ask after one disposition
 - “Nobody named the renter” is a reason to investigate, not enough evidence to delete.
 - Deletion requires a counterfactual.
 - “Boring” means a proven/simple topology satisfies the actual invariant; it is not aesthetic conservatism.
-- If multiple material architectures survive, or independent repairs keep taking the same shape, use `STOP`. Do not turn this into Tribunal Lite, and do not continue repair churn.
+- If multiple material architectures survive, or independent repairs keep taking the same shape, use `STOP`. Do not turn this into a sprawling design review, and do not continue repair churn.
 
 ## Why this shape
 
