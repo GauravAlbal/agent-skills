@@ -21,6 +21,24 @@ guidance ≠ evidence
 evidence ≠ acceptance
 ```
 
+## Try one now — no install
+
+Pick the row that matches what just happened, then paste this into any coding agent that can read web links. Replace `proof` with that skill's name:
+
+```text
+Use the proof skill from The Kit.
+
+Read:
+https://github.com/GauravAlbal/agent-skills/tree/main/proof
+
+Start with SKILL.md and follow the files it requires.
+
+What happened:
+<the claim, retry, check, change, or design you want judged>
+```
+
+You get one typed decision back, with what it does not establish.
+
 ## Where these came from
 
 I did not sit down and invent five prompts. These are small decision procedures I kept needing while building with coding agents.
@@ -37,7 +55,17 @@ Read [Why The Kit](docs/WHY_THE_KIT.md) for the longer provenance and the mistak
 
 ## Install
 
-Clone the repository:
+With the [skills CLI](https://skills.sh), from your project:
+
+```sh
+npx skills add GauravAlbal/agent-skills --skill proof
+```
+
+Replace `proof` with `done`, `ddx`, `scope`, or `simplify`. Restart your client so it loads the skill.
+
+Checked on 2026-11-12 with skills CLI 1.8.1 and Claude Code 2.1.304: after a project-level install of `proof`, Claude Code listed and loaded it. The CLI listed the other four skills but they were not installed in that check. Other hosts and user-level (`-g`) installs have not been checked.
+
+To install by hand instead, clone the repository:
 
 ```sh
 git clone https://github.com/GauravAlbal/agent-skills.git the-kit
@@ -157,6 +185,14 @@ Does this check prove this behavior on this revision?
 If the problem is the whole test suite—what matters, what is missing, and what can safely go—use [Fix My Tests](https://github.com/GauravAlbal/fix-my-tests).
 
 The Kit is what I reach for during the work. Fix My Tests is the deeper tool I reach for when the test system itself becomes the work.
+
+## Did it help?
+
+It helped if the exit changed your next move: a `NOT_DONE` that found a missing deliverable, an `INSTRUMENT` that saved a retry, a `WRONG_METHOD` that stopped a green test from standing in for the claim. If it only agreed and changed nothing you will do, it did not help, and that is worth knowing too.
+
+Either way, [tell me what it changed](https://github.com/GauravAlbal/agent-skills/issues/new?template=skill-feedback.yml). The same form covers Fix My Tests and Fix My Requirements. A few lines are enough; submissions are public. To get notified of new releases, watch this repository (Watch → Custom → Releases).
+
+Related tools, by the problem they handle: [start here](https://github.com/GauravAlbal).
 
 ## Limits
 

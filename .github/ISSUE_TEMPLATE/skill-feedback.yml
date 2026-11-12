@@ -1,0 +1,62 @@
+name: Skill feedback
+description: You used Fix My Tests, Fix My Requirements, or a Kit skill on real work. Tell me what happened.
+title: "Feedback: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is for a run you already did. A few lines are enough, and "it changed nothing" is a useful answer.
+
+        **Submissions are public.** Private repository contents are not needed: describe the situation instead. Do not paste source, secrets, customer data, or vulnerability details.
+
+        To ask for a Fix My Tests analysis of a repository instead, use its [analysis request form](https://github.com/GauravAlbal/fix-my-tests/issues/new?template=analysis-request.yml).
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Skill
+      options:
+        - Fix My Tests
+        - Fix My Requirements
+        - done
+        - ddx
+        - proof
+        - scope
+        - simplify
+    validations:
+      required: true
+  - type: input
+    id: host
+    attributes:
+      label: Agent host and version
+      description: For example, Claude Code 2.1, Cursor 1.x, Codex CLI. Say how you installed the skill or whether you used the no-install prompt.
+    validations:
+      required: true
+  - type: textarea
+    id: job
+    attributes:
+      label: The job you attempted
+      description: What you asked for and what the agent could read, such as a test suite, a spec, a diff, or a failing check.
+    validations:
+      required: true
+  - type: textarea
+    id: changed
+    attributes:
+      label: What the output changed, or failed to change
+      description: A decision, gap, deletion, requirement, or next action that changed because of the output. If nothing changed, say why.
+    validations:
+      required: true
+  - type: textarea
+    id: stuck
+    attributes:
+      label: Where you got stuck
+      description: Installing, getting the agent to use the skill, understanding the output, or anything else.
+  - type: textarea
+    id: manual
+    attributes:
+      label: Work you still had to do yourself
+      description: Anything you had to reconstruct, translate, or check by hand before you could use the result.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Redacted evidence (optional)
+      description: An excerpt of the output or a link to a public example, with anything private removed.
