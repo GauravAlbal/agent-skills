@@ -86,7 +86,7 @@ Other exits: `DONE` · `EXPLICITLY_PARTIAL` · `UNKNOWN`
 
 ### `ddx` — you are about to retry
 
-**DDx Lite** separates a bad implementation from a bad checker, a shared architecture problem, or genuinely new information before you burn another attempt.
+**DDx Lite** separates a bad implementation from a bad checker, a shared architecture problem, or genuinely new information before you burn another attempt. An exact, currently authorized repair with an established cause stays with its implementer; do not reopen diagnosis for that case.
 
 The requested mutation exists in the target worktree. The checker failed because it inspected a different worktree's untracked file.
 
